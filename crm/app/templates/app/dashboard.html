@@ -1,0 +1,72 @@
+{% extends "app/base.html" %}
+
+
+{% block content %}
+<div class="container">
+  <br> <br>
+<h5> Welcome, {{user}}! 👋 </h5>
+
+<hr>
+
+<a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
+
+    Add a new Book &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+</a>
+
+<hr> 
+
+<table class="table table-hover table-bordered">
+
+    <thead class="table-light">
+
+        <tr>
+
+            <th scope="col"> ID </th>
+            <th scope="col"> Book Title </th>
+            <th scope="col"> Date </th>
+            <th scope="col"> Number Of Copies </th>
+            
+            <th scope="col"> Date addedd </th>
+
+            <th scope="col"> View </th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+    {% if records %}
+
+        {% for record in records %}
+
+        <tr>
+
+            <td> {{record.id}} </td>
+
+            <td> {{record.title}}  {{record.last_name}} </td>
+
+            <td> {{record.doe}} </td>
+
+            <td> {{record.num_copies}} </td>
+            <td> {{record.at}} </td>
+            
+            
+
+            <td> <a class="btn btn-success btn-sm" href="{% url ''  %}"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+
+        </tr>
+
+        {% endfor %}
+    
+    {% endif %}
+
+
+    </tbody>
+
+
+</table>
+</div>
+
+{% endblock %}
